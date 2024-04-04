@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "orta.vscode-twoslash-queries",
+    "biomejs.rome",
+    "streetsidesoftware.code-spell-checker",
+    "antfu.unocss"
+  ]
+}

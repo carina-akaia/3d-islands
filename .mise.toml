@@ -1,0 +1,5 @@
+[env]
+# supports arbitrary env vars so rtx can be used like direnv/dotenv
+
+[tools]
+node = "20.9.0" # Latest LTS
