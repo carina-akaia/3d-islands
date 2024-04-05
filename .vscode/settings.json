@@ -25,7 +25,11 @@
 		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"cSpell.words": [
+		"apfel",
 		"biomejs",
-		"Noname"
+		"Noname",
+		"Phong",
+		"pnpx",
+		"uuidv"
 	]
 }
