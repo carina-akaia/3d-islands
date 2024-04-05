@@ -1,11 +1,9 @@
-import { Button } from "@/common/ui/components";
+import { Demo } from "@/domain/islands";
 
 export default function Home() {
 	return (
 		<main>
-			<div>
-				<Button>Test</Button>
-			</div>
+			<Demo />
 		</main>
 	);
 }
