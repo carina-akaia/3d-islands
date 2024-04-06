@@ -29,7 +29,9 @@ customElements.define(
 			createRoot(elementRoot).render(
 				<Canvas>
 					<Root flexDirection="column">
-						<Button>Test</Button>
+						<Container padding={16} backgroundColor="black">
+							<Button>Test</Button>
+						</Container>
 					</Root>
 				</Canvas>,
 			);
