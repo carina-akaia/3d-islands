@@ -1,10 +1,7 @@
-import { Demo, type DemoProps } from "@/domain/islands";
-import { demoElementName } from "./domain/islands/demo";
+import { Demo, type DemoElementRegistry, type DemoProps } from "@/domain/islands";
 
 declare global {
 	namespace JSX {
-		export interface IntrinsicElements {
-			[demoElementName]: DemoProps;
-		}
+		export interface IntrinsicElements extends DemoElementRegistry {}
 	}
 }

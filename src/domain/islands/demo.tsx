@@ -2,35 +2,39 @@
 
 import { Button } from "@/common/ui/components";
 import { Canvas } from "@react-three/fiber";
+import { Container, Root } from "@react-three/uikit";
 import { createRoot } from "react-dom/client";
 
-export const demoElementName = "x-demo";
+const elementName = "x-demo";
 const elementRoot = document.createElement("div");
 
-export type DemoProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
-	heading?: string;
-	subHeading?: string;
-	size?: string;
-};
+export interface DemoElementRegistry {
+	[elementName]: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+		heading?: string;
+		subHeading?: string;
+		size?: string;
+	};
+}
 
 customElements.define(
-	demoElementName,
+	elementName,
 
 	class DemoWebComponent extends HTMLElement {
 		constructor() {
 			super();
-
 			this.attachShadow({ mode: "open" }).appendChild(elementRoot);
 		}
 
 		connectedCallback() {
 			createRoot(elementRoot).render(
 				<Canvas>
-					<Button>Test</Button>
+					<Root flexDirection="column">
+						<Button>Test</Button>
+					</Root>
 				</Canvas>,
 			);
 		}
 	},
 );
 
-export const Demo: React.FC<DemoProps> = (props) => <x-demo {...props} />;
+export const Demo: React.FC<DemoElementRegistry["x-demo"]> = (props) => <x-demo {...props} />;
