@@ -1,3 +1,3 @@
-import { Demo } from "./demo";
+import { Demo, type DemoProps } from "./demo";
 
-export { Demo };
+export { Demo, type DemoProps };
