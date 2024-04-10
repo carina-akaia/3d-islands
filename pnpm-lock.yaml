@@ -8,6 +8,9 @@ dependencies:
   '@preact/signals-core':
     specifier: ^1.6.0
     version: 1.6.0
+  '@react-three/a11y':
+    specifier: ^3.0.0
+    version: 3.0.0(@react-three/fiber@8.16.1)(react-dom@18.2.0)(react@18.2.0)(three@0.163.0)
   '@react-three/drei':
     specifier: ^9.105.1
     version: 9.105.1(@react-three/fiber@8.16.1)(@types/react@18.2.74)(@types/three@0.163.0)(react-dom@18.2.0)(react@18.2.0)(three@0.163.0)
@@ -312,6 +315,23 @@ packages:
 
   /@react-spring/types@9.6.1:
     resolution: {integrity: sha512-POu8Mk0hIU3lRXB3bGIGe4VHIwwDsQyoD1F394OK7STTiX9w4dG3cTLljjYswkQN+hDSHRrj4O36kuVa7KPU8Q==}
+    dev: false
+
+  /@react-three/a11y@3.0.0(@react-three/fiber@8.16.1)(react-dom@18.2.0)(react@18.2.0)(three@0.163.0):
+    resolution: {integrity: sha512-lnKIK8oPQBDWdzVMKm4kNi7W8RoGE7s5sHbw7Wz++MhyXih5L4aLyNkWedCn9v/PjRl2x3zIbzzZIWqoabwkJA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      '@react-three/fiber': '>=8.0'
+      react: '>=18.0'
+      react-dom: '>=18.0'
+      three: '>=0.133.0'
+    dependencies:
+      '@react-three/fiber': 8.16.1(react-dom@18.2.0)(react@18.2.0)(three@0.163.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      three: 0.163.0
+      utility-types: 3.11.0
+      zustand: 3.7.2(react@18.2.0)
     dev: false
 
   /@react-three/drei@9.105.1(@react-three/fiber@8.16.1)(@types/react@18.2.74)(@types/three@0.163.0)(react-dom@18.2.0)(react@18.2.0)(three@0.163.0):

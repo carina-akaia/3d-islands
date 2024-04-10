@@ -3,7 +3,7 @@ import { Demo } from "@/domain/islands";
 export default function Home() {
 	return (
 		<main>
-			<Demo subHeading="hello, world" />
+			<Demo heading="hello, world" />
 		</main>
 	);
 }
