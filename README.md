@@ -1,6 +1,8 @@
 # Noname Project
 
-NextJS + GraphQL + Rust experiment.
+Demo project showcasing a hardened Island Architecture implementation applied to a NextJS app.
+
+Islands are declared as WebComponents where ShadowDOM holds `<canvas />` controlled by React Three Fiber.
 
 ## Development
 

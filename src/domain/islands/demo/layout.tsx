@@ -10,7 +10,7 @@ export type DemoLayoutProps = React.DetailedHTMLProps<
 	heading?: string;
 };
 
-const DemoCanvas: React.FC<DemoLayoutProps> = ({ heading }) => (
+export const DemoLayout: React.FC<DemoLayoutProps> = ({ heading }) => (
 	<Canvas style={{ height: "100%" }}>
 		<Root minWidth="100%" minHeight="100%" flexDirection="column">
 			<Text fontSize={200}>{heading ?? "no heading"}</Text>
@@ -24,19 +24,3 @@ const DemoCanvas: React.FC<DemoLayoutProps> = ({ heading }) => (
 		</Root>
 	</Canvas>
 );
-
-export class DemoLayout extends HTMLElement {
-	// constructor() {
-	// 	super();
-	// }
-
-	static get observedAttributes() {
-		return ["heading"];
-	}
-
-	connectedCallback() {
-		createRoot(
-			this.attachShadow({ mode: "open" }).appendChild(document.createElement("div")),
-		).render(<DemoCanvas heading={this.getAttribute("heading") ?? undefined} />);
-	}
-}

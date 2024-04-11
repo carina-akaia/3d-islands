@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
+		"setup": "corepack enable pnpm && corepack use pnpm@latest",
 		"fmt": "biome format . --write",
 		"add:ui": "uikit component add apfel",
 		"dev": "biome start && next dev && biome stop",
@@ -20,7 +21,8 @@
 		"react": "^18",
 		"react-dom": "^18",
 		"three": "^0.163.0",
-		"uuid": "^9.0.1"
+		"uuid": "^9.0.1",
+		"zod": "^3.22.4"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.6.4",
