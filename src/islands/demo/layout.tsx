@@ -11,11 +11,11 @@ export const DemoLayout = () => {
 	const onInputChange = useCallback((value: string) => updateLayoutParams({ heading: value }), []);
 
 	return (
-		<Canvas style={{ height: "100%" }}>
+		<Canvas style={{ width: "100%", height: "100%" }}>
 			<Root minWidth="100%" minHeight="100%" flexDirection="column">
 				{heading.value.length > 0 ? <Text fontSize={64}>{heading}</Text> : null}
 
-				<Container width="100%" padding={16} flexDirection="column" gap={16}>
+				<Container width={320} height="100%" padding={16} flexDirection="column" gap={16}>
 					<Input
 						value={heading}
 						onValueChange={onInputChange}
@@ -23,10 +23,11 @@ export const DemoLayout = () => {
 						borderColor={colors.foreground}
 						borderRadius={12}
 						padding={6}
+						width="100%"
 						height={36}
 					/>
 
-					<Button platter>
+					<Button platter width="100%">
 						<Text>{"Test"}</Text>
 					</Button>
 				</Container>

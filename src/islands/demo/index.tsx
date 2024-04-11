@@ -3,7 +3,7 @@
 import { useEffect, useMemo } from "react";
 import { createRoot } from "react-dom/client";
 import { DemoLayout } from "./layout";
-import { type DemoLayoutParams, onLayoutParamsUpdated, updateLayoutParams } from "./model";
+import { type DemoLayoutParams, layoutParams, updateLayoutParams } from "./model";
 
 const tagName = "masonry-demo";
 
@@ -15,16 +15,13 @@ export class DemoElement extends HTMLElement {
 		return ["heading"];
 	}
 
-	constructor() {
-		super();
-		//onLayoutParamsUpdated(({ heading }) => this.setAttribute("heading", heading ?? ""));
-	}
-
 	attributeChangedCallback(key: "heading", prev: string, next: string) {
 		if (next !== prev) updateLayoutParams({ [key]: next });
 	}
 
 	connectedCallback() {
+		layoutParams.subscribe(({ heading }) => this.setAttribute("heading", heading ?? ""));
+
 		createRoot(
 			this.attachShadow({ mode: "open" }).appendChild(document.createElement("main")),
 		).render(
@@ -46,7 +43,7 @@ declare global {
 
 export const Demo: React.FC<DemoAttributes> = ({ style, ...props }) => {
 	const htmlAttributes = useMemo(
-		() => ({ style: { display: "flex", height: "100%", ...style }, ...props }),
+		() => ({ style: { display: "flex", ...style }, ...props }),
 		[style, props],
 	);
 
