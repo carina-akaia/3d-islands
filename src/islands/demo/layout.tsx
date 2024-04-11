@@ -15,7 +15,7 @@ export const DemoLayout = () => {
 			<Root minWidth="100%" minHeight="100%" flexDirection="column">
 				{heading.value.length > 0 ? <Text fontSize={64}>{heading}</Text> : null}
 
-				<Container width={320} height="100%" padding={16} flexDirection="column" gap={16}>
+				<Container width="100%" height="100%" padding={16} flexDirection="column" gap={16}>
 					<Input
 						value={heading}
 						onValueChange={onInputChange}

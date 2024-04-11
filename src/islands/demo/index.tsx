@@ -26,7 +26,7 @@ export class DemoElement extends HTMLElement {
 			this.attachShadow({ mode: "open" }).appendChild(document.createElement("main")),
 		).render(
 			<>
-				<style>{"main { width: 100% }"}</style>
+				<style>{"main { width: 100%; height: 100% }"}</style>
 				<DemoLayout />
 			</>,
 		);
