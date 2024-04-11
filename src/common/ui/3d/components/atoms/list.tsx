@@ -1,6 +1,6 @@
-import { colors } from "@/common/ui/theme";
 import { Container, DefaultProperties } from "@react-three/uikit";
 import { createContext, useContext } from "react";
+import { colors } from "~/src/common/ui/3d/theme";
 
 type Type = "plain" | "inset";
 

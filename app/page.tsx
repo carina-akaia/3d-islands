@@ -8,7 +8,7 @@ const Demo = dynamic(() => import("@/islands/demo").then((mod) => mod.Demo), { s
 export default function Page() {
 	return (
 		<Suspense>
-			<Demo heading="Test!" style={{ minWidth: 480 }} />
+			<Demo heading="Hello, world!" style={{ minWidth: 480 }} />
 		</Suspense>
 	);
 }

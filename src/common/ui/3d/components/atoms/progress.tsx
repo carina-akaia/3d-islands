@@ -1,5 +1,5 @@
-import { colors } from "@/common/ui/theme";
 import { Container } from "@react-three/uikit";
+import { colors } from "~/src/common/ui/3d/theme";
 
 export function Progress({
 	value = 0,

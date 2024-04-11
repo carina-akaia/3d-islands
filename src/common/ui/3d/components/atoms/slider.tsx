@@ -1,10 +1,10 @@
-import { GlassMaterial, colors } from "@/common/ui/theme";
 import type { ThreeEvent } from "@react-three/fiber";
 import type { EventHandlers } from "@react-three/fiber/dist/declarations/src/core/events";
 import { type ComponentInternals, Container, DefaultProperties } from "@react-three/uikit";
 import { useMemo, useRef, useState } from "react";
 import { Vector3 } from "three";
 import { clamp } from "three/src/math/MathUtils.js";
+import { GlassMaterial, colors } from "~/src/common/ui/3d/theme";
 
 const vectorHelper = new Vector3();
 

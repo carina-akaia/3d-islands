@@ -1,5 +1,5 @@
-import { colors } from "@/common/ui/theme";
 import { Container, DefaultProperties } from "@react-three/uikit";
+import { colors } from "~/src/common/ui/3d/theme";
 
 function getArbitrarySize(size: number) {
 	const multiplier = size / 44;

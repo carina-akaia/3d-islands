@@ -1,7 +1,7 @@
-import { colors } from "@/common/ui/theme";
 import { Container } from "@react-three/uikit";
 import { Check } from "@react-three/uikit-lucide";
 import { useState } from "react";
+import { colors } from "~/src/common/ui/3d/theme";
 
 type CheckboxProps = React.ComponentPropsWithoutRef<typeof Container> & {
 	selected?: boolean;

@@ -1,6 +1,6 @@
-import { GlassMaterial, colors } from "@/common/ui/theme";
 import { Container, DefaultProperties } from "@react-three/uikit";
 import { createContext, useContext, useMemo, useRef, useState } from "react";
+import { GlassMaterial, colors } from "~/src/common/ui/3d/theme";
 
 type TabsContext = {
 	value?: string;

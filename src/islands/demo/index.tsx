@@ -3,9 +3,9 @@
 import { useEffect, useMemo } from "react";
 import { createRoot } from "react-dom/client";
 import { DemoLayout } from "./layout";
-import { type DemoLayoutParams, updateLayoutParams } from "./model";
+import { type DemoLayoutParams, onLayoutParamsUpdated, updateLayoutParams } from "./model";
 
-const tagName = "x-demo";
+const tagName = "masonry-demo";
 
 type DemoAttributes = React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> &
 	DemoLayoutParams;
@@ -15,9 +15,12 @@ export class DemoElement extends HTMLElement {
 		return ["heading"];
 	}
 
-	attributeChangedCallback(key: "heading", prev: string, next: string) {
-		console.log({ key, prev, next });
+	constructor() {
+		super();
+		//onLayoutParamsUpdated(({ heading }) => this.setAttribute("heading", heading ?? ""));
+	}
 
+	attributeChangedCallback(key: "heading", prev: string, next: string) {
 		if (next !== prev) updateLayoutParams({ [key]: next });
 	}
 
@@ -51,5 +54,5 @@ export const Demo: React.FC<DemoAttributes> = ({ style, ...props }) => {
 		if (customElements.get(tagName) === undefined) customElements.define(tagName, DemoElement);
 	}, []);
 
-	return <x-demo {...htmlAttributes} />;
+	return <masonry-demo {...htmlAttributes} />;
 };

@@ -1,9 +1,9 @@
-import { colors } from "@/common/ui/theme";
 import { signal } from "@preact/signals-core";
 import { useFrame } from "@react-three/fiber";
 import { Container } from "@react-three/uikit";
 import { useMemo } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { colors } from "~/src/common/ui/3d/theme";
 
 const sizes = {
 	sm: { diameter: 20, pillWidth: 3, pillHeight: 6 },

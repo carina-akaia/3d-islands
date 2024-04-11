@@ -1,6 +1,6 @@
-import { colors } from "@/common/ui/theme";
 import { Container, DefaultProperties } from "@react-three/uikit";
 import { createContext, useContext, useMemo, useRef, useState } from "react";
+import { colors } from "~/src/common/ui/3d/theme";
 import { Card } from "../atoms/card";
 
 type TabBarContext = {
