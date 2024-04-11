@@ -3,12 +3,12 @@
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
-const Demo = dynamic(() => import("@/domain/islands/demo").then((mod) => mod.Demo), { ssr: false });
+const Demo = dynamic(() => import("@/islands/demo").then((mod) => mod.Demo), { ssr: false });
 
 export default function Page() {
 	return (
 		<Suspense>
-			<Demo heading="Test!" />
+			<Demo heading="Test!" style={{ minWidth: 480 }} />
 		</Suspense>
 	);
 }

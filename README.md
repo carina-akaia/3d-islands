@@ -1,10 +1,19 @@
-# 3D-Islands
+# Full Stack DDD
 
-Demo project showcasing a hardened Islands Architecture implementation with WebGL rendering.
+🚧 Work in progress
 
-Islands are declared as WebComponents where ShadowDOM holds `<canvas />` controlled by React Three Fiber.
+Demo project showcasing an architectural framework for fullstack web projects,
+that adopts modern standards and popular patterns / approaches in order to achieve
+better scalability and streamlined onboarding.
 
-## Development
+## Architecture
+
+### Islands
+
+Hardened Islands Architecture implementation where islands declared as WebComponents
+to facilitate isolation and potential interoperability across frameworks.
+
+## Development environment
 
 ### Prerequisites
 

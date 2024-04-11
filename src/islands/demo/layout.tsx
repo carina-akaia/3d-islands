@@ -1,7 +1,7 @@
 import { Button } from "@/common/ui/components";
 import { Canvas } from "@react-three/fiber";
 import { Container, Input, Root, Text } from "@react-three/uikit";
-import { colors } from "../../../common/ui/theme";
+import { colors } from "../../common/ui/theme";
 import { useLayoutParams } from "./model";
 
 export const DemoLayout = () => {
