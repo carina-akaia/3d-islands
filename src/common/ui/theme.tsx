@@ -14,24 +14,34 @@ function hsl(h: number, s: number, l: number) {
 	return new Color().setHSL(h / 360, s / 100, l / 100, "srgb");
 }
 
-export const colors = {
-	foreground: "orange",
-	background: hsl(0, 0, 0),
-	card: hsl(0, 0, 53),
-	cardForeground: hsl(0, 0, 100),
-	accent: hsl(210, 100, 52),
-	accentForeground: hsl(0, 0, 100),
+const fromHslString = (input: string) => {
+	const values = input
+		.match(/hsl\((\d+) \s*(\d+)% \s*(\d+)%\)/)
+		?.slice(1)
+		.map((value) => Number.parseInt(value));
+
+	return hsl(values?.at(0) ?? 0, values?.at(1) ?? 0, values?.at(2) ?? 0);
 };
 
-export function Defaults(props: React.ComponentPropsWithoutRef<typeof DefaultProperties>) {
-	return (
-		<DefaultProperties
-			scrollbarColor={colors.background}
-			scrollbarBorderRadius={4}
-			scrollbarOpacity={0.3}
-			color={colors.background}
-			fontWeight="medium"
-			{...props}
-		/>
-	);
-}
+export const colors: Record<string, Color> = {
+	background: fromHslString("hsl(0 0% 0%)"),
+	primary: fromHslString("hsl(39 72% 36%)"),
+	primaryForeground: fromHslString("hsl(0 0% 100%)"),
+	secondary: fromHslString("hsl(210 100% 52%)"),
+	secondaryForeground: fromHslString("hsl(0 0% 100%)"),
+	accent: fromHslString("hsl(210 100% 52%)"),
+	accentForeground: fromHslString("hsl(0 0% 100%)"),
+	card: fromHslString("hsl(0 0% 53%)"),
+	cardForeground: fromHslString("hsl(0 0% 100%)"),
+};
+
+export const Defaults = (props: React.ComponentPropsWithoutRef<typeof DefaultProperties>) => (
+	<DefaultProperties
+		scrollbarColor={colors.background}
+		scrollbarBorderRadius={4}
+		scrollbarOpacity={0.3}
+		color={colors.background}
+		fontWeight="medium"
+		{...props}
+	/>
+);

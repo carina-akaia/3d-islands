@@ -2,11 +2,11 @@
 
 import { useEffect } from "react";
 import { createRoot } from "react-dom/client";
-import { DemoLayout, type DemoLayoutProps } from "./layout";
+import { DemoCanvas, type DemoCanvasProps } from "./canvas";
 
 const tagName = "x-demo";
 
-export class DemoCanvas extends HTMLElement {
+export class DemoLayout extends HTMLElement {
 	// constructor() {
 	// 	super();
 	// }
@@ -15,25 +15,34 @@ export class DemoCanvas extends HTMLElement {
 		return ["heading"];
 	}
 
+	get props(): DemoCanvasProps {
+		return { heading: this.getAttribute("heading") };
+	}
+
 	connectedCallback() {
 		createRoot(
-			this.attachShadow({ mode: "open" }).appendChild(document.createElement("div")),
-		).render(<DemoLayout heading={this.getAttribute("heading") ?? undefined} />);
+			this.attachShadow({ mode: "open" }).appendChild(document.createElement("main")),
+		).render(
+			<>
+				<style>{"main { width: 100% }"}</style>
+				<DemoCanvas {...this.props} />
+			</>,
+		);
 	}
 }
 
 declare global {
 	namespace JSX {
 		export interface IntrinsicElements {
-			[tagName]: DemoLayoutProps;
+			[tagName]: DemoCanvasProps;
 		}
 	}
 }
 
-export const Demo: React.FC<DemoLayoutProps> = (props) => {
+export const Demo: React.FC<DemoCanvasProps> = (props) => {
 	useEffect(() => {
-		if (customElements.get(tagName) === undefined) customElements.define(tagName, DemoCanvas);
+		if (customElements.get(tagName) === undefined) customElements.define(tagName, DemoLayout);
 	}, []);
 
-	return <x-demo {...props} />;
+	return <x-demo style={{ display: "flex", height: "100%" }} {...props} />;
 };

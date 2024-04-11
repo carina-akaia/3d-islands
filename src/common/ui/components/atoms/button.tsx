@@ -3,6 +3,7 @@ import { Container, DefaultProperties } from "@react-three/uikit";
 
 function getArbitrarySize(size: number) {
 	const multiplier = size / 44;
+
 	return {
 		height: 44 * multiplier,
 		padding: 20 * multiplier,
@@ -20,6 +21,7 @@ const sizes = {
 		borderRadius: 4,
 		fontSize: 8,
 	},
+
 	sm: {
 		height: 32,
 		padding: 12,
@@ -27,6 +29,7 @@ const sizes = {
 		fontSize: 12,
 		iconSize: 14,
 	},
+
 	md: {
 		height: 44,
 		padding: 20,
@@ -34,6 +37,7 @@ const sizes = {
 		fontSize: 14,
 		iconSize: 18,
 	},
+
 	lg: {
 		height: 52,
 		padding: 25,
@@ -41,6 +45,7 @@ const sizes = {
 		fontSize: 16,
 		iconSize: 22,
 	},
+
 	xl: {
 		height: 56,
 		padding: 29,
@@ -69,6 +74,7 @@ export function Button({
 }) {
 	const { borderRadius, fontSize, height, padding, iconSize } =
 		typeof size === "number" ? getArbitrarySize(size) : sizes[size];
+
 	return (
 		<Container
 			cursor={disabled ? undefined : "pointer"}
@@ -78,15 +84,14 @@ export function Button({
 			borderRadius={variant === "rect" ? borderRadius : height / 2}
 			justifyContent="center"
 			alignItems="center"
-			backgroundColor={colors.foreground}
-			backgroundOpacity={disabled ? 0.1 : selected ? 1 : platter ? 0.15 : 0}
-			hover={{
-				backgroundOpacity: disabled ? 0.1 : selected ? 1 : 0.2,
-			}}
+			backgroundColor={colors.primary}
+			backgroundOpacity={disabled ? 0.1 : selected ? 1 : platter ? 0.15 : 0.6}
+			hover={{ backgroundOpacity: disabled ? 0.1 : selected ? 1 : 0.8 }}
+			active={{ backgroundOpacity: disabled ? 0.1 : 1 }}
 			{...props}
 		>
 			<DefaultProperties
-				color={selected && !disabled ? colors.background : colors.foreground}
+				color={selected && !disabled ? colors.background : colors.primaryForeground}
 				opacity={disabled ? 0.4 : 1}
 				fontSize={fontSize}
 				width={variant === "icon" ? iconSize : undefined}
