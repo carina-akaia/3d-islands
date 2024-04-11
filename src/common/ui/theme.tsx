@@ -15,7 +15,7 @@ function hsl(h: number, s: number, l: number) {
 }
 
 export const colors = {
-	foreground: hsl(0, 0, 100),
+	foreground: "orange",
 	background: hsl(0, 0, 0),
 	card: hsl(0, 0, 53),
 	cardForeground: hsl(0, 0, 100),
