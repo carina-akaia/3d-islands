@@ -27,11 +27,13 @@ export const colors: Record<string, Color> = {
 	background: fromHslString("hsl(0 0% 0%)"),
 	primary: fromHslString("hsl(39 72% 36%)"),
 	primaryForeground: fromHslString("hsl(0 0% 100%)"),
-	secondary: fromHslString("hsl(210 100% 52%)"),
+	secondary: fromHslString("hsl(216, 78%, 39%)"),
 	secondaryForeground: fromHslString("hsl(0 0% 100%)"),
 	accent: fromHslString("hsl(210 100% 52%)"),
 	accentForeground: fromHslString("hsl(0 0% 100%)"),
-	card: fromHslString("hsl(0 0% 53%)"),
+	destructive: fromHslString("hsl(336 96% 52%)"),
+	destructiveForeground: fromHslString("hsl(0 0% 100%)"),
+	card: fromHslString("hsl(199 33% 16%)"),
 	cardForeground: fromHslString("hsl(0 0% 100%)"),
 };
 

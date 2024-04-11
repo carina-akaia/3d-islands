@@ -1,6 +1,6 @@
-# 3D Islands
+# 3D-Islands
 
-Demo project showcasing a hardened Island Architecture implementation with WebGL rendering.
+Demo project showcasing a hardened Islands Architecture implementation with WebGL rendering.
 
 Islands are declared as WebComponents where ShadowDOM holds `<canvas />` controlled by React Three Fiber.
 
