@@ -1,6 +1,5 @@
-import { useSignal } from "@preact/signals";
 import { computed, signal } from "@preact/signals-core";
-import { createContext, useContext, useMemo } from "react";
+import { useMemo } from "react";
 
 export type DemoLayoutParams = {
 	heading: string | null;
@@ -17,7 +16,3 @@ export const updateLayoutParams = (update: DemoLayoutParams) => {
 export const useLayoutParams = () => {
 	return useMemo(() => ({ heading: computed(() => layoutParams.value.heading ?? "") }), []);
 };
-
-// export const layoutContext = createContext(params);
-
-// export const useLayoutContext = () => useContext(layoutContext);
