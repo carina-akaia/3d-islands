@@ -1,9 +1,16 @@
-import { Demo } from "@/domain/islands";
+"use client";
 
-export default function Home() {
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+
+const Demo = dynamic(() => import("@/domain/islands/demo").then((mod) => mod.Demo), {
+	ssr: false,
+});
+
+export default function Page() {
 	return (
-		<main>
-			<Demo heading="hello, world" />
-		</main>
+		<Suspense>
+			<Demo heading="Welcome" />
+		</Suspense>
 	);
 }
