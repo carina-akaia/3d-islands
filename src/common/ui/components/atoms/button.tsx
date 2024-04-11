@@ -85,7 +85,7 @@ export function Button({
 			justifyContent="center"
 			alignItems="center"
 			backgroundColor={colors.primary}
-			backgroundOpacity={disabled ? 0.1 : selected ? 1 : platter ? 0.15 : 0.6}
+			backgroundOpacity={disabled ? 0.1 : selected ? 1 : platter ? 0.4 : 0}
 			hover={{ backgroundOpacity: disabled ? 0.1 : selected ? 1 : 0.8 }}
 			active={{ backgroundOpacity: disabled ? 0.1 : 1 }}
 			{...props}

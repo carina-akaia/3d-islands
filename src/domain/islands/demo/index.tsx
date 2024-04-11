@@ -1,22 +1,24 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { createRoot } from "react-dom/client";
-import { DemoCanvas, type DemoCanvasProps } from "./canvas";
+import { DemoLayout } from "./layout";
+import { type DemoLayoutParams, updateLayoutParams } from "./model";
 
 const tagName = "x-demo";
 
-export class DemoLayout extends HTMLElement {
-	// constructor() {
-	// 	super();
-	// }
+type DemoAttributes = React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> &
+	DemoLayoutParams;
 
+export class DemoElement extends HTMLElement {
 	static get observedAttributes() {
 		return ["heading"];
 	}
 
-	get props(): DemoCanvasProps {
-		return { heading: this.getAttribute("heading") };
+	attributeChangedCallback(key: "heading", prev: string, next: string) {
+		console.log({ key, prev, next });
+
+		if (next !== prev) updateLayoutParams({ [key]: next });
 	}
 
 	connectedCallback() {
@@ -25,7 +27,7 @@ export class DemoLayout extends HTMLElement {
 		).render(
 			<>
 				<style>{"main { width: 100% }"}</style>
-				<DemoCanvas {...this.props} />
+				<DemoLayout />
 			</>,
 		);
 	}
@@ -34,15 +36,20 @@ export class DemoLayout extends HTMLElement {
 declare global {
 	namespace JSX {
 		export interface IntrinsicElements {
-			[tagName]: DemoCanvasProps;
+			[tagName]: DemoAttributes;
 		}
 	}
 }
 
-export const Demo: React.FC<DemoCanvasProps> = (props) => {
+export const Demo: React.FC<DemoAttributes> = ({ style, ...props }) => {
+	const htmlAttributes = useMemo(
+		() => ({ style: { display: "flex", height: "100%", ...style }, ...props }),
+		[style, props],
+	);
+
 	useEffect(() => {
-		if (customElements.get(tagName) === undefined) customElements.define(tagName, DemoLayout);
+		if (customElements.get(tagName) === undefined) customElements.define(tagName, DemoElement);
 	}, []);
 
-	return <x-demo style={{ display: "flex", height: "100%" }} {...props} />;
+	return <x-demo {...htmlAttributes} />;
 };

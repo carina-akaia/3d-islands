@@ -23,8 +23,9 @@ const fromHslString = (input: string) => {
 	return hsl(values?.at(0) ?? 0, values?.at(1) ?? 0, values?.at(2) ?? 0);
 };
 
-export const colors: Record<string, Color> = {
+export const colors = {
 	background: fromHslString("hsl(0 0% 0%)"),
+	foreground: fromHslString("hsl(0 0% 100%)"),
 	primary: fromHslString("hsl(39 72% 36%)"),
 	primaryForeground: fromHslString("hsl(0 0% 100%)"),
 	secondary: fromHslString("hsl(216, 78%, 39%)"),
