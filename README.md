@@ -1,8 +1,8 @@
-# Full Stack DDD
+# Full Stack Masonry
 
 🚧 Work in progress
 
-Demo project showcasing an architectural framework for fullstack web projects,
+Demo project showcasing an architectural framework for full stack web projects,
 that adopts modern standards and popular patterns / approaches in order to achieve
 better scalability and streamlined onboarding.
 
