@@ -23,7 +23,7 @@ export class DemoElement extends HTMLElement {
 		layoutParams.subscribe(({ heading }) => this.setAttribute("heading", heading ?? ""));
 
 		createRoot(
-			this.attachShadow({ mode: "open" }).appendChild(document.createElement("main")),
+			this.attachShadow({ mode: "closed" }).appendChild(document.createElement("main")),
 		).render(
 			<>
 				<style>{"main { width: 100%; height: 100% }"}</style>
